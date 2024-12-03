@@ -7,8 +7,8 @@ def main():
     enabled = True
     with open("input.txt", "r") as file:
         input = file.read().rstrip()
-        res = re.finditer(r"(?:mul\((\d{1,3}),(\d{1,3})\))|(do\(\))|(don't\(\))", input)
-        for match in res:
+        matches = re.finditer(r"(?:mul\((\d{1,3}),(\d{1,3})\))|(do\(\))|(don't\(\))", input)
+        for match in matches:
             if match.group(1) and enabled:
                 sum += int(match.group(1)) * int(match.group(2))
             else:
